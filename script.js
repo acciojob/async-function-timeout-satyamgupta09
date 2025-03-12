@@ -1,17 +1,16 @@
-//your JS code here. If required.
-let btn = document.getElementById('btn');
-let output = document.getElementById('output');
-
-function delay(time) {
-	return new Promise((resolve) => setTimeout(resolve,time));
+function delay(t){
+	return new Promise((resolve)=>{
+		setTimeout(()=>{
+			resolve("y"); 
+		},t); 
+	})
 }
 
-btn.addEventListener('click', async function(){
-	let txt = document.getElementById('text').value;
-    let num = parseInt(document.getElementById('delay').value);
-	
-	output.innerHTML=``;
+document.getElementById("btn").addEventListener('click', async function(){
+	let val = document.getElementById("text").value;
+    let num = parseInt(document.getElementById("delay").value, 10) || 0;
+
 	await delay(num);
-	
-	output.innerHTML=`${txt}`;
+
+	document.getElementById("output").innerHTML=`<p>${val}</p>`
 })
